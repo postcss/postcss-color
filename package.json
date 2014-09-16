@@ -30,7 +30,7 @@
   "dependencies": {
     "balanced-match": "^0.1.0",
     "color": "^0.7.1",
-    "css-color-function": "^1.1.0",
+    "css-color-function": "^1.1.1",
     "reduce-function-call": "^1.0.1"
   },
   "devDependencies": {

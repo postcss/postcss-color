@@ -38,21 +38,36 @@ module.exports = function plugin(options) {
 function transform(string, source, options) {
   // order of transformation is important
 
-  if (options.rebeccapurple && string.indexOf("rebeccapurple") > -1) {
-    string = transformRebeccapurple(string, source)
-  }
+  try {
+    if (options.rebeccapurple && string.indexOf("rebeccapurple") > -1) {
+      string = transformRebeccapurple(string, source)
+    }
 
-  if (options.hwb && string.indexOf("hwb(") > -1) {
-    string = transformHwb(string, source)
-  }
+    if (options.hwb && string.indexOf("hwb(") > -1) {
+      string = transformHwb(string, source)
+    }
 
-  if (options.hexAlpha && string.indexOf("#") > -1) {
-    string = transformHexAlpha(string, source)
-  }
+    if (options.hexAlpha && string.indexOf("#") > -1) {
+      string = transformHexAlpha(string, source)
+    }
 
-  if (options.color && string.indexOf("color(") > -1) {
-    string = transformColor(string, source)
+    if (options.color && string.indexOf("color(") > -1) {
+      string = transformColor(string, source)
+    }
+  }
+  catch (e) {
+    throw new Error(gnuMessage(e.message, source))
   }
 
   return string
+}
+
+/**
+ * return GNU style message
+ *
+ * @param {String} message
+ * @param {Object} source
+ */
+function gnuMessage(message, source) {
+  return (source ? (source.file ? source.file : "<css input>") + ":" + source.start.line + ":" + source.start.column : "") + " " + message
 }

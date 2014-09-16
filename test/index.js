@@ -43,3 +43,11 @@ test("all features at once", function(t) {
   compareFixtures(t, "all", "should transform all colors")
   t.end()
 })
+
+test("throw errors", function(t) {
+  t.throws(function() {
+    return postcss(plugin()).process(read(filename("fixtures/error"))).css
+  }, /Unable to parse color from string/, "throws a readable error when a color can't be parsed")
+
+  t.end()
+})
