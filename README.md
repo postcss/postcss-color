@@ -1,3 +1,12 @@
+# DEPRECATED
+
+This module have been exploded into several plugins
+
+- [postcss-color-function](https://github.com/postcss/postcss-color-function)
+- [postcss-color-hex-alpha](https://github.com/postcss/postcss-color-hex-alpha)
+- [postcss-color-hwb](https://github.com/postcss/postcss-color-hwb)
+- [postcss-color-rebeccapurple](https://github.com/postcss/postcss-color-rebeccapurple)
+
 # postcss-color [![Build Status](https://travis-ci.org/postcss/postcss-color.png)](https://travis-ci.org/postcss/postcss-color)
 
 > [PostCSS](https://github.com/postcss/postcss) plugin to transform latest [W3C CSS color module](http://dev.w3.org/csswg/css-color/#modifying-colors) syntax to more compatible CSS.
